@@ -1,0 +1,56 @@
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<%= gravatar_tag @user.email, size: 200 %>
+		    </div>
+
+		    <div class="col-md-4">
+		    	<h4><%= @user.name %></h4>
+		    	<p>Age: <%= @user.age %></p>
+		    	<p>School: <%= @user.school %></p>
+		    	<p>Work: <%= @user.work %></p>
+		    </div>
+
+		    <div class="col-md-4">
+		    	<h4>About me</h4>
+		    	<small><%= @user.bio %></small>
+		    </div>
+		</div>
+
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel panel-heading">
+					Friends (<%= @user.active_friends.size %>)
+				</div>
+				<div class="panel-body">
+					<% @user.active_friends.last(16).each do |user| %>
+					<%= link_to user_path(user.username) do %>
+					<%= gravatar_tag user.email, size: 40 %>
+					<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<!-- Posts -->
+		<div class="col-md-6">
+		</div>
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel panel-heading">
+					Recent Activity
+				</div>
+				<div class="panel panel-body">
+					<%= render_activities(@activities) %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
