@@ -10,7 +10,7 @@ Rails.application.routes.draw do
      put :accept
     end
   end 
-
+  resources :posts, only: [:create, :update, :edit, :destroy]
 
 
   # You can have the root of your site routed with "root"
