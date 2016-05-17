@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:show]
+  before_action :authenticate_user!, only: [:index, :show]
 
 
   def index
@@ -23,8 +24,12 @@ class UsersController < ApplicationController
     @activities = PublicActivity::Activity.where(owner_id: @user.id)
   end
 
+  private
+
   def set_user
   	@user = User.find_by(username: params[:id])
   end
+
+
 end
 

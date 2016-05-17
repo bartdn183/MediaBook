@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end 
   resources :posts, only: [:create, :update, :edit, :destroy]
 
+  resources :activities, only: [:index]
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

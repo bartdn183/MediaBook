@@ -6,11 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="navbar-fixed-top">
+<body>
 
 
 <%= render 'layouts/navbar' %>
-
+	<div class="notices">
 	<% flash.each do |type, message| %>
 
 		<div class="alert <%= bootstrap_class_for(type) %> fade-in ">
@@ -19,7 +19,7 @@
 		</div> 
 
 	<% end %>
-
+</div>
 <%= yield %>
 
 </body>
